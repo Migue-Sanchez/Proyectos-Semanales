@@ -20,7 +20,6 @@ import {
   TextInput,
   useTheme,
 } from "react-native-paper";
-import { SafeAreaView } from "react-native-safe-area-context";
 import AppbarContent from "react-native-paper/lib/typescript/components/Appbar/AppbarContent";
 import { temaClaro } from "./themes/temaClaro";
 import { temaOscuro } from "./themes/temaOscuro";
@@ -37,7 +36,7 @@ export default function App() {
   const tema = useTheme();
 
   return (
-    <SafeAreaView style={{ backgroundColor: tema.colors.backdrop }}>
+    <View style={{ backgroundColor: tema.colors.backdrop }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Appbar.Header
           elevated={true}
@@ -165,7 +164,7 @@ export default function App() {
         color={tema.colors.primary}
         style={styles.fab}
       ></FAB>
-    </SafeAreaView>
+    </View>
   );
 }
 
