@@ -1,5 +1,5 @@
-import { ScrollView, StyleSheet, View } from "react-native";
-import React from "react";
+import { ScrollView, StyleSheet, useColorScheme, View } from "react-native";
+import React, { use } from "react";
 import {
   Appbar,
   Avatar,
@@ -25,8 +25,10 @@ import { temaClaro } from "./themes/temaClaro";
 import { temaOscuro } from "./themes/temaOscuro";
 
 export function getRootComponent() {
+  const esquema = useColorScheme();
+  const cambioTema = esquema === "dark" ? temaOscuro : temaClaro;
   return (
-    <PaperProvider theme={temaClaro}>
+    <PaperProvider theme={cambioTema}>
       <App />
     </PaperProvider>
   );
@@ -36,7 +38,7 @@ export default function App() {
   const tema = useTheme();
 
   return (
-    <View style={{ backgroundColor: tema.colors.backdrop }}>
+    <View style={{ backgroundColor: tema.colors.background }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Appbar.Header
           elevated={true}
